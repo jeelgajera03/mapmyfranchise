@@ -20,3 +20,5 @@ A platform connecting franchisees and franchisors with bidding and subscription 
 ## Development
 - Use `main` branch for stable code.
 - Create feature branches for new work. 
+
+PAT:  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
