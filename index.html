@@ -1,304 +1,342 @@
-Put your HTML text here
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map My Franchise - The Ultimate Franchise Management Platform</title>
+    <title>Map My Franchise - AI-Powered Franchise Management Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { 
+            font-family: 'Inter', sans-serif;
+            background-color: #050816;
+            color: #E6E6FA; /* Lavender white */
+        }
+        .glass-card {
+            background: rgba(23, 26, 45, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
         .hero-gradient-text {
-            background: linear-gradient(to right, #4f46e5, #a855f7);
+            background: linear-gradient(90deg, #9333ea, #3b82f6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .feature-tab.active {
+            background-color: #4f46e5;
+            color: white;
+        }
+        .feature-content {
+            display: none;
+        }
+        .feature-content.active {
+            display: block;
+        }
+        .pulse-button {
+            box-shadow: 0 0 0 0 rgba(96, 165, 250, 1);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(96, 165, 250, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0); }
         }
     </style>
 </head>
-<body class="bg-white text-slate-800">
+<body class="overflow-x-hidden">
 
     <!-- Header -->
-    <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 border-b border-slate-200">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0">
-                    <a href="#" class="text-2xl font-bold text-slate-900">MapMyFranchise</a>
-                </div>
-                <nav class="hidden md:flex md:items-center md:space-x-8">
-                    <a href="#features" class="font-medium text-slate-600 hover:text-indigo-600">Features</a>
-                    <a href="#pricing" class="font-medium text-slate-600 hover:text-indigo-600">Pricing</a>
-                    <a href="#faq" class="font-medium text-slate-600 hover:text-indigo-600">FAQ</a>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/50 backdrop-blur-lg border-b border-slate-700">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#" class="text-2xl font-bold text-white">MapMyFranchise</a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="font-medium text-slate-300 hover:text-white transition-colors">Features</a>
+                    <a href="#roi" class="font-medium text-slate-300 hover:text-white transition-colors">ROI</a>
+                    <a href="#pricing" class="font-medium text-slate-300 hover:text-white transition-colors">Pricing</a>
                 </nav>
                 <div class="flex items-center space-x-4">
-                    <a href="../index.html" class="hidden sm:inline-block text-sm font-semibold text-slate-600 hover:text-indigo-600">Login</a>
-                    <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-indigo-700 shadow-sm">Request a Demo</a>
+                    <a href="../index.html" class="hidden sm:inline-block text-sm font-semibold text-slate-300 hover:text-white">Login</a>
+                    <a href="#" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors shadow-lg pulse-button">Request a Demo</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <main>
+    <main class="pt-20">
         <!-- Hero Section -->
-        <section class="pt-32 pb-20 bg-slate-50">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
-                    The All-in-One Platform to <br class="hidden md:inline"/>
-                    <span class="hero-gradient-text">Manage & Grow</span> Your Franchise
+        <section class="relative pt-24 pb-32 overflow-hidden">
+             <div class="absolute inset-0 bg-gradient-to-b from-[#050816] to-[#111827] z-0"></div>
+             <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 z-0"></div>
+            <div class="container mx-auto px-6 lg:px-8 relative z-10 text-center">
+                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight tracking-tight">
+                    Your Franchise Command Center, <br class="hidden md:block"/> Powered by 
+                    <span class="hero-gradient-text" id="hero-animated-text">AI Insights</span>
                 </h1>
-                <p class="mt-6 max-w-2xl mx-auto text-lg text-slate-600">
-                    Gain unparalleled visibility into your entire network. From interactive maps to AI-powered insights, MapMyFranchise is the command center your business deserves.
-                </p>d
-                <div class="mt-8 flex justify-center space-x-4">
-                    <a href="#" class="bg-indigo-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-indigo-700 shadow-lg transform hover:scale-105 transition-transform">Request a Free Demo</a>
-                    <a href="#features" class="bg-white text-indigo-600 px-8 py-3 rounded-md font-semibold hover:bg-slate-100 shadow-lg border border-slate-200 transform hover:scale-105 transition-transform">Explore Features</a>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-slate-400">
+                    Unify your operations, supercharge growth, and gain total network visibility. MapMyFranchise is the all-in-one platform built for ambitious franchise leaders.
+                </p>
+                <div class="mt-10 flex flex-wrap justify-center gap-4">
+                    <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 shadow-xl transform hover:scale-105 transition-transform duration-300">Get a Free Demo</a>
+                    <a href="#" class="bg-slate-700/50 text-slate-200 px-8 py-3 rounded-lg font-semibold hover:bg-slate-600/50 border border-slate-600 transition-colors">Watch 2-Min Tour</a>
                 </div>
-                <div class="mt-12">
-                    <img src="./images/dashboard.png" alt="Map My Franchise Dashboard" class="rounded-xl shadow-2xl mx-auto">
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features" class="py-24">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-900">Everything you need, in one place</h2>
-                    <p class="mt-4 text-lg text-slate-600">Centralize your operations, marketing, and expansion strategies.</p>
-                </div>
-
-                <div class="mt-16 grid md:grid-cols-2 gap-16 items-center">
-                    <!-- Feature 1: Interactive Dashboard -->
-                    <div class="space-y-4">
-                        <h3 class="text-2xl font-bold">Interactive Franchise Dashboard</h3>
-                        <p class="text-slate-600">Visualize your entire network on a live map. Click any location to instantly see performance KPIs, sales data, and compliance status. Identify high-performers and at-risk locations at a glance.</p>
-                    </div>
-                    <div>
-                        <img src="./images/map.png" alt="Interactive Map" class="rounded-lg shadow-xl">
-                    </div>
-
-                    <!-- Feature 2: CRM -->
-                    <div class="md:order-last space-y-4">
-                        <h3 class="text-2xl font-bold">Integrated CRM</h3>
-                        <p class="text-slate-600">Manage customer relationships across all your franchises. Track interactions, manage leads, and provide consistent, high-quality customer service from a unified database.</p>
-                    </div>
-                    <div>
-                        <img src="./images/supply-chain.png" alt="Supply Chain" class="rounded-lg shadow-xl">
-                    </div>
-
-                    <!-- Feature 3: Supply Chain -->
-                    <div class="space-y-4">
-                        <h3 class="text-2xl fonAt-bold">Supply Chain Overview</h3>
-                        <p class="text-slate-600">Monitor inventory levels across your network in real-time. Get alerts for low-stock and out-of-stock items, prevent shortages, and optimize your supply chain for maximum efficiency.</p>
-                    </div>
-                    <div>
-                        <img src="./images/CRM.png" alt="CRM" class="rounded-lg shadow-xl">
-                        
-                    </div>
-                    
-                    <!-- Feature 4: AI Location Scout -->
-                    <div class="md:order-last space-y-4">
-                        <h3 class="text-2xl font-bold">AI-Powered Expansion</h3>
-                        <p class="text-slate-600">Take the guesswork out of growth. Our AI analyzes demographics, foot traffic, and competition to recommend prime locations for your next franchise, giving you a data-driven edge.</p>
-                    </div>
-                    <div>
-                        <img src="./images/location_scout.png" alt="AI Location Scout" class="rounded-lg shadow-xl">
+                <div class="mt-16">
+                    <div class="glass-card p-2 inline-block">
+                        <img src="./images/dashboard.png" alt="Map My Franchise Dashboard" class="rounded-xl shadow-2xl mx-auto">
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Testimonials Section -->
-        <section class="bg-slate-50 py-24">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-900">Loved by franchise leaders</h2>
+        
+        <!-- Trusted By Section -->
+        <section class="py-12 bg-[#111827]">
+            <div class="container mx-auto px-6 lg:px-8">
+                <h3 class="text-center text-sm font-bold text-slate-500 uppercase tracking-widest">Trusted By Leading Franchise Networks</h3>
+                <div class="mt-8 flex justify-center items-center gap-x-8 md:gap-x-16 flex-wrap">
+                    <span class="text-slate-500 font-bold text-lg opacity-70">Burger Palace</span>
+                    <span class="text-slate-500 font-bold text-lg opacity-70">Coffee House Co.</span>
+                    <span class="text-slate-500 font-bold text-lg opacity-70">Fresh Salads Inc.</span>
+                    <span class="text-slate-500 font-bold text-lg opacity-70">Pizza Corp</span>
                 </div>
-                <div class="mt-12 grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-lg shadow-md">
-                        <p class="text-slate-600">"MapMyFranchise revolutionized how we view our network. The ability to see real-time sales data on a map is a game-changer."</p>
-                        <div class="mt-4 font-semibold text-slate-900">- Sarah L., COO, Burger Palace</div>
+            </div>
+        </section>
+
+        <!-- Features Section with Tabs -->
+        <section id="features" class="py-24 bg-gradient-to-b from-[#111827] to-[#050816]">
+            <div class="container mx-auto px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-4xl font-extrabold text-white">One Platform. Infinite Possibilities.</h2>
+                    <p class="mt-4 text-lg text-slate-400">From a bird's-eye view to ground-level details, control every aspect of your franchise empire.</p>
+                </div>
+
+                <div class="mt-12 max-w-5xl mx-auto">
+                    <div id="feature-tabs" class="grid grid-cols-2 md:grid-cols-4 gap-2 glass-card p-2 mb-8">
+                        <button class="feature-tab active px-3 py-3 rounded-lg font-semibold transition-colors" data-tab="dashboard">Dashboard</button>
+                        <button class="feature-tab px-3 py-3 rounded-lg font-semibold transition-colors" data-tab="ai-scout">AI Location Scout</button>
+                        <button class="feature-tab px-3 py-3 rounded-lg font-semibold transition-colors" data-tab="crm">Integrated CRM</button>
+                        <button class="feature-tab px-3 py-3 rounded-lg font-semibold transition-colors" data-tab="supply-chain">Supply Chain</button>
                     </div>
-                    <div class="bg-white p-8 rounded-lg shadow-md">
-                        <p class="text-slate-600">"The AI Location Scout gave us the confidence to expand into three new markets this year. The insights are incredibly accurate."</p>
-                        <div class="mt-4 font-semibold text-slate-900">- Mark C., Head of Expansion, Coffee House Co.</div>
+
+                    <div id="feature-content-area" class="glass-card p-8 md:p-12">
+                        <!-- Dashboard Content -->
+                        <div class="feature-content active" id="dashboard">
+                            <div class="grid md:grid-cols-2 gap-8 items-center">
+                                <div class="space-y-4">
+                                    <h3 class="text-2xl font-bold text-white">Live Operations Dashboard</h3>
+                                    <p class="text-slate-400">Visualize your network on an interactive map. Drill down into any location to see real-time sales, compliance status, and customer feedback. Turn data into decisive action.</p>
+                                </div>
+                                <div><img src="./images/map.png" alt="Interactive Map" class="rounded-lg shadow-xl"></div>
+                            </div>
+                        </div>
+                        <!-- AI Scout Content -->
+                        <div class="feature-content" id="ai-scout">
+                           <div class="grid md:grid-cols-2 gap-8 items-center">
+                                <div class="space-y-4">
+                                    <h3 class="text-2xl font-bold text-white">AI-Powered Expansion</h3>
+                                    <p class="text-slate-400">Our proprietary AI analyzes thousands of data points—demographics, foot traffic, competition—to score and recommend prime locations for your next big opening.</p>
+                                </div>
+                                <div> <img src="./images/location_scout.png" alt="AI Location Scout" class="rounded-lg shadow-xl"></div>
+                            </div>
+                        </div>
+                        <!-- CRM Content -->
+                        <div class="feature-content" id="crm">
+                             <div class="grid md:grid-cols-2 gap-8 items-center">
+                                <div class="space-y-4">
+                                    <h3 class="text-2xl font-bold text-white">Unified CRM</h3>
+                                    <p class="text-slate-400">Get a 360° view of your customers across all locations. Manage interactions, track loyalty, and empower your franchisees to build lasting relationships.</p>
+                                </div>
+                                <div> <img src="./images/CRM.png" alt="CRM" class="rounded-lg shadow-xl"></div>
+                            </div>
+                        </div>
+                         <!-- Supply Chain Content -->
+                        <div class="feature-content" id="supply-chain">
+                            <div class="grid md:grid-cols-2 gap-8 items-center">
+                                <div class="space-y-4">
+                                    <h3 class="text-2xl font-bold text-white">Supply Chain Automation</h3>
+                                    <p class="text-slate-400">Never run out of stock again. Monitor inventory levels network-wide, get predictive alerts for low stock, and streamline your entire procurement process from a single dashboard.</p>
+                                </div>
+                                <div> <img src="./images/supply-chain.png" alt="Supply Chain" class="rounded-lg shadow-xl"> </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-white p-8 rounded-lg shadow-md">
-                        <p class="text-slate-600">"Finally, a single platform for compliance, marketing, and operations. Our franchisees are happier and more engaged than ever."</p>
-                        <div class="mt-4 font-semibold text-slate-900">- Emily R., CEO, Fresh Salads Inc.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI Calculator Section -->
+        <section id="roi" class="py-24 bg-[#111827]">
+            <div class="container mx-auto px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-extrabold text-white">See Your Potential Return</h2>
+                        <p class="text-lg text-slate-400">Our platform isn't a cost, it's an investment in efficiency and growth. Use our interactive calculator to estimate the value MapMyFranchise can bring to your network.</p>
+                        <div class="flex gap-8">
+                            <div>
+                                <p class="text-3xl font-bold text-blue-400" id="stat1">15%</p>
+                                <p class="text-slate-500">Avg. Sales Uplift</p>
+                            </div>
+                            <div>
+                                <p class="text-3xl font-bold text-blue-400" id="stat2">30%</p>
+                                <p class="text-slate-500">Faster Expansion</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-8">
+                        <h3 class="text-xl font-bold text-white mb-4">Estimate Your ROI</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="franchise-count" class="block text-sm font-medium text-slate-400">Number of Franchises</label>
+                                <input type="range" id="franchise-count" min="5" max="500" value="50" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                                <div class="text-right text-white font-bold text-lg mt-1"><span id="franchise-count-label">50</span> locations</div>
+                            </div>
+                            <div>
+                                <label for="avg-revenue" class="block text-sm font-medium text-slate-400">Avg. Annual Revenue per Franchise</label>
+                                <input type="range" id="avg-revenue" min="100000" max="2000000" step="50000" value="750000" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                                <div class="text-right text-white font-bold text-lg mt-1">$<span id="avg-revenue-label">750,000</span></div>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-slate-700 text-center">
+                            <p class="text-slate-400">Estimated Annual Revenue Increase:</p>
+                            <p class="text-4xl font-bold text-green-400 mt-2" id="roi-result">$562,500</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Pricing Section -->
-        <section id="pricing" class="py-24">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-900">Find the perfect plan</h2>
-                    <p class="mt-4 text-lg text-slate-600">Start small and scale as you grow.</p>
+        <section id="pricing" class="py-24 bg-gradient-to-b from-[#050816] to-[#111827]">
+            <div class="container mx-auto px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto">
+                    <h2 class="text-4xl font-extrabold text-white">Simple, Transparent Pricing</h2>
+                    <p class="mt-4 text-lg text-slate-400">Choose the plan that scales with your ambition. No hidden fees.</p>
                 </div>
-                <div class="mt-16 grid md:grid-cols-3 gap-8">
+                <div class="mt-16 grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
                     <!-- Starter Plan -->
-                    <div class="border border-slate-200 rounded-lg p-8 flex flex-col">
-                        <h3 class="text-xl font-bold">Starter</h3>
-                        <p class="mt-2 text-slate-500">For new and growing franchises.</p>
-                        <p class="mt-6 text-4xl font-bold">$199<span class="text-lg font-medium text-slate-500">/mo</span></p>
-                        <ul class="mt-8 space-y-4 text-slate-600 flex-grow">
-                            <li class="flex items-center"><svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Up to 10 Locations</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Dashboard & Analytics</li>
-                            <li class="flex items-center"><svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Compliance Tracking</li>
+                    <div class="glass-card p-8 flex flex-col h-full">
+                        <h3 class="text-xl font-bold text-white">Starter</h3>
+                        <p class="mt-2 text-slate-400">For new and growing franchises.</p>
+                        <p class="mt-6 text-5xl font-bold text-white">$199<span class="text-xl font-medium text-slate-400">/mo</span></p>
+                        <ul class="mt-8 space-y-4 text-slate-300 flex-grow">
+                             <li class="flex items-start"><svg class="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span>Up to 10 Locations</span></li>
+                             <li class="flex items-start"><svg class="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span>Dashboard & Analytics</span></li>
+                             <li class="flex items-start"><svg class="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span>Compliance Tracking</span></li>
                         </ul>
-                        <a href="#" class="mt-8 w-full text-center bg-white text-indigo-600 px-6 py-3 rounded-md font-semibold hover:bg-slate-100 border border-slate-200">Get Started</a>
+                        <a href="#" class="mt-8 w-full text-center bg-slate-700/50 text-slate-200 px-6 py-3 rounded-lg font-semibold hover:bg-slate-600/50 border border-slate-600 transition-colors">Get Started</a>
                     </div>
-                    <!-- Professional Plan -->
-                    <div class="border-2 border-indigo-600 rounded-lg p-8 flex flex-col relative">
-                        <div class="absolute top-0 -translate-y-1/2 bg-indigo-600 text-white px-3 py-1 text-sm font-semibold rounded-full">Most Popular</div>
-                        <h3 class="text-xl font-bold">Professional</h3>
-                        <p class="mt-2 text-slate-500">For established franchise networks.</p>
-                        <p class="mt-6 text-4xl font-bold">$499<span class="text-lg font-medium text-slate-500">/mo</span></p>
-                        <ul class="mt-8 space-y-4 text-slate-600 flex-grow">
-                             <li class="flex items-center"><svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Up to 50 Locations</li>
-                             <li class="flex items-center"><svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Everything in Starter, plus:</li>
-                             <li class="flex items-center"><svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>CRM & Supply Chain</li>
-                             <li class="flex items-center"><svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>AI Location Scout</li>
+                     <!-- Professional Plan -->
+                     <div class="glass-card p-8 flex flex-col border-2 border-blue-500 relative h-full">
+                        <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 text-sm font-semibold rounded-full shadow-lg">Most Popular</div>
+                        <h3 class="text-xl font-bold text-white">Professional</h3>
+                        <p class="mt-2 text-slate-400">For established networks ready to scale.</p>
+                        <p class="mt-6 text-5xl font-bold text-white">$499<span class="text-xl font-medium text-slate-400">/mo</span></p>
+                        <ul class="mt-8 space-y-4 text-slate-300 flex-grow">
+                             <li class="flex items-start"><svg class="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span>Up to 50 Locations</span></li>
+                             <li class="flex items-start"><svg class="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span>Everything in Starter, plus:</span></li>
+                             <li class="flex items-start"><svg class="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span>CRM & Supply Chain</span></li>
+                             <li class="flex items-start"><svg class="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span>AI Location Scout</span></li>
                         </ul>
-                        <a href="#" class="mt-8 w-full text-center bg-indigo-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-indigo-700">Get Started</a>
+                        <a href="#" class="mt-8 w-full text-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors transform hover:scale-105">Get Started</a>
                     </div>
                     <!-- Enterprise Plan -->
-                    <div class="border border-slate-200 rounded-lg p-8 flex flex-col">
-                        <h3 class="text-xl font-bold">Enterprise</h3>
-                        <p class="mt-2 text-slate-500">For large-scale operations.</p>
-                        <p class="mt-6 text-4xl font-bold">Custom</p>
-                        <ul class="mt-8 space-y-4 text-slate-600 flex-grow">
-                             <li class="flex items-center"><svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Unlimited Locations</li>
-                             <li class="flex items-center"><svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Everything in Professional, plus:</li>
-                             <li class="flex items-center"><svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Dedicated Support</li>
-                             <li class="flex items-center"><svg class="w-5 h-5 text-indigo-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Custom Integrations</li>
+                    <div class="glass-card p-8 flex flex-col h-full">
+                        <h3 class="text-xl font-bold text-white">Enterprise</h3>
+                        <p class="mt-2 text-slate-400">For large-scale, custom needs.</p>
+                        <p class="mt-6 text-5xl font-bold text-white">Custom</p>
+                        <ul class="mt-8 space-y-4 text-slate-300 flex-grow">
+                             <li class="flex items-start"><svg class="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span>Unlimited Locations & Users</span></li>
+                             <li class="flex items-start"><svg class="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span>Dedicated Support & Onboarding</span></li>
+                             <li class="flex items-start"><svg class="w-5 h-5 text-blue-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg><span>Custom Integrations & APIs</span></li>
                         </ul>
-                        <a href="#" class="mt-8 w-full text-center bg-white text-indigo-600 px-6 py-3 rounded-md font-semibold hover:bg-slate-100 border border-slate-200">Contact Sales</a>
+                        <a href="#" class="mt-8 w-full text-center bg-slate-700/50 text-slate-200 px-6 py-3 rounded-lg font-semibold hover:bg-slate-600/50 border border-slate-600 transition-colors">Contact Sales</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section id="faq" class="bg-slate-50 py-24">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-                <div class="text-center">
-                    <h2 class="text-3xl font-bold text-slate-900">Frequently Asked Questions</h2>
-                </div>
-                <div class="mt-12 space-y-4" id="faq-accordion">
-                    <!-- FAQ Item 1 -->
-                    <div class="bg-white p-4 rounded-lg shadow-sm">
-                        <button class="w-full flex justify-between items-center text-left font-semibold">
-                            <span>How does the data integration work?</span>
-                            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div class="mt-2 text-slate-600 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                            <p>We provide seamless integrations with popular POS systems (like Petpooja, Odoo), accounting software, and CRMs. Our team will assist you with the setup process to ensure your data flows smoothly into the dashboard.</p>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 2 -->
-                    <div class="bg-white p-4 rounded-lg shadow-sm">
-                        <button class="w-full flex justify-between items-center text-left font-semibold">
-                            <span>Is our data secure?</span>
-                            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div class="mt-2 text-slate-600 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                            <p>Absolutely. We use industry-standard encryption for data in transit and at rest. Your data is hosted on secure, compliant cloud infrastructure, and you have full control over user access and permissions.</p>
-                        </div>
-                    </div>
-                    <!-- FAQ Item 3 -->
-                    <div class="bg-white p-4 rounded-lg shadow-sm">
-                        <button class="w-full flex justify-between items-center text-left font-semibold">
-                            <span>Can we customize the dashboard?</span>
-                            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div class="mt-2 text-slate-600 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                           <p>Yes! While we provide a powerful default dashboard, our Enterprise plan includes options for custom widgets and reports tailored to your specific KPIs and business needs.</p>
-                        </div>
+        <!-- Footer -->
+        <footer class="bg-[#111827] border-t border-slate-800">
+             <div class="container mx-auto px-6 lg:px-8 py-16">
+                 <div class="text-center">
+                    <h2 class="text-3xl font-extrabold text-white">Ready to See the Future of Franchise Management?</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-400">Stop juggling spreadsheets and start making data-driven decisions. Let us show you how.</p>
+                    <div class="mt-8">
+                        <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 shadow-xl transform hover:scale-105 transition-transform duration-300 pulse-button">Request Your Free Demo Now</a>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Final CTA -->
-        <section class="py-24">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-extrabold text-slate-900">Ready to transform your franchise?</h2>
-                <p class="mt-4 max-w-xl mx-auto text-lg text-slate-600">See MapMyFranchise in action and discover how you can drive growth and efficiency across your network.</p>
-                <div class="mt-8">
-                    <a href="#" class="bg-indigo-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-indigo-700 shadow-lg transform hover:scale-105 transition-transform">Request Your Free Demo</a>
+                <div class="mt-16 pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-sm text-slate-500">
+                    <p>&copy; 2024 Map My Franchise, Inc. All rights reserved.</p>
+                     <div class="flex space-x-6 mt-4 sm:mt-0">
+                        <a href="#" class="hover:text-slate-300 transition-colors">Privacy</a>
+                        <a href="#" class="hover:text-slate-300 transition-colors">Terms</a>
+                    </div>
                 </div>
-            </div>
-        </section>
-
+             </div>
+        </footer>
     </main>
-    
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-lg font-semibold text-white">MapMyFranchise</h3>
-                    <p class="mt-2 text-sm">The command center for modern franchise networks.</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-white">Product</h4>
-                    <ul class="mt-4 space-y-2 text-sm">
-                        <li><a href="#features" class="hover:text-white">Features</a></li>
-                        <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
-                        <li><a href="#" class="hover:text-white">Request a Demo</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-white">Company</h4>
-                    <ul class="mt-4 space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-white">About Us</a></li>
-                        <li><a href="#" class="hover:text-white">Careers</a></li>
-                        <li><a href="#" class="hover:text-white">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-white">Legal</h4>
-                    <ul class="mt-4 space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-white">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="mt-8 pt-8 border-t border-slate-700 text-center text-sm">
-                <p>&copy; 2024 Map My Franchise, Inc. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
-        // FAQ Accordion Script
         document.addEventListener('DOMContentLoaded', () => {
-            const accordion = document.getElementById('faq-accordion');
-            if (accordion) {
-                const items = accordion.querySelectorAll('button');
-                items.forEach(item => {
-                    item.addEventListener('click', () => {
-                        const answer = item.nextElementSibling;
-                        const icon = item.querySelector('svg');
+            // Hero text animation
+            const animatedText = document.getElementById('hero-animated-text');
+            if(animatedText) {
+                const phrases = ["AI Insights", "Total Visibility", "Smarter Growth"];
+                let phraseIndex = 0;
+                setInterval(() => {
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    animatedText.style.opacity = '0';
+                    setTimeout(() => {
+                        animatedText.textContent = phrases[phraseIndex];
+                        animatedText.style.opacity = '1';
+                    }, 300);
+                }, 3000);
+            }
 
-                        if (answer.style.maxHeight && answer.style.maxHeight !== '0px') {
-                            answer.style.maxHeight = '0px';
-                            icon.style.transform = 'rotate(0deg)';
-                        } else {
-                            answer.style.maxHeight = answer.scrollHeight + 'px';
-                            icon.style.transform = 'rotate(180deg)';
-                        }
+            // Feature tabs
+            const tabsContainer = document.getElementById('feature-tabs');
+            if(tabsContainer){
+                const tabs = tabsContainer.querySelectorAll('.feature-tab');
+                const contents = document.querySelectorAll('#feature-content-area .feature-content');
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        tabs.forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        const targetId = tab.getAttribute('data-tab');
+                        contents.forEach(content => {
+                            content.classList.remove('active');
+                            if (content.id === targetId) {
+                                content.classList.add('active');
+                            }
+                        });
                     });
                 });
             }
+
+            // ROI Calculator
+            const franchiseCountSlider = document.getElementById('franchise-count');
+            const avgRevenueSlider = document.getElementById('avg-revenue');
+            const franchiseCountLabel = document.getElementById('franchise-count-label');
+            const avgRevenueLabel = document.getElementById('avg-revenue-label');
+            const roiResult = document.getElementById('roi-result');
+
+            function calculateROI() {
+                if(!franchiseCountSlider || !avgRevenueSlider || !franchiseCountLabel || !avgRevenueLabel || !roiResult) return;
+                const count = parseInt(franchiseCountSlider.value);
+                const revenue = parseInt(avgRevenueSlider.value);
+                const estimatedIncrease = count * revenue * 0.075; // 7.5% estimated revenue increase
+                franchiseCountLabel.textContent = count.toLocaleString();
+                avgRevenueLabel.textContent = revenue.toLocaleString();
+                roiResult.textContent = '$' + estimatedIncrease.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            }
+            if(franchiseCountSlider) franchiseCountSlider.addEventListener('input', calculateROI);
+            if(avgRevenueSlider) avgRevenueSlider.addEventListener('input', calculateROI);
+            calculateROI();
         });
     </script>
-
 </body>
 </html>
